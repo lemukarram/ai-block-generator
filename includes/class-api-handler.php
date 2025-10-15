@@ -1,25 +1,31 @@
 <?php
-class AI_Block_Generator_API_Handler {
+class AI_Block_Generator_API_Handler
+{
     private $api_key;
-    private $api_url = 'https://generativelanguage.googleapis.com/v1beta/models/';
+    private $api_url = 'https://generativelanguage.googleapis.com/v1/models/';
 
-    public function __construct($api_key) {
+    public function __construct($api_key)
+    {
         $this->api_key = $api_key;
     }
 
-    public function generate_block($prompt) {
+    public function generate_block($prompt)
+    {
         $model = get_option('ai_block_generator_model', 'gemini-1.5-flash');
+        $modelId = 'gemini-2.5-flash';
         $url = $this->api_url . $model . ':generateContent?key=' . $this->api_key;
-        
+
         $data = [
-            "contents" => [[
-                "role" => "user",
-                "parts" => [["text" => $prompt]]
-            ]]
+            "contents" => [
+                [
+                    "role" => "user",
+                    "parts" => [["text" => $prompt]]
+                ]
+            ]
         ];
 
         $args = [
-            'body'    => json_encode($data),
+            'body' => json_encode($data),
             'headers' => [
                 'Content-Type' => 'application/json'
             ],
