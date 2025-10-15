@@ -1,0 +1,24 @@
+.ai-block-generator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.ai-block-form,
+.ai-block-list {
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+@media (max-width: 1200px) {
+    .ai-block-generator-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-table textarea {
+    width: 100%;
+}
