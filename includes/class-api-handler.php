@@ -12,7 +12,7 @@ class AI_Block_Generator_API_Handler
     public function generate_block($prompt)
     {
         $model = get_option('ai_block_generator_model', 'gemini-1.5-flash');
-        $modelId = 'gemini-2.5-flash';
+        $model = 'gemini-2.5-flash';
         $url = $this->api_url . $model . ':generateContent?key=' . $this->api_key;
 
         $data = [
